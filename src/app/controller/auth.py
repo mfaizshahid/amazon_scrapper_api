@@ -1,6 +1,6 @@
 
 from fastapi import Response, Body
-from app.models.auth import SignupUserSchema, SigninUserSchema
+from app.schemas.auth import SignupUserSchema, SigninUserSchema
 
 
 class AuthController:

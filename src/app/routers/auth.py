@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Response, Body
-from app.models.auth import SignupUserSchema, SigninUserSchema
+from app.schemas.auth import SignupUserSchema, SigninUserSchema
 from app.controller.auth import AuthController
 auth_router = APIRouter(
     prefix="/auth",
