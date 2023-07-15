@@ -28,7 +28,8 @@ def upgrade() -> None:
                         timezone=False), server_default=sa.text('now()'), nullable=False),
                     sa.Column("updated_at", sa.DateTime(
                         timezone=False), server_default=sa.text('now()')),
-
+                    sa.Column("is_active", sa.Boolean(),
+                              server_default="f", nullable=False),
                     )
 
 
