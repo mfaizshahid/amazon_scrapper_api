@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.schemas.auth import SignupUserSchema, SigninUserSchema
 from app.controller.auth import AuthController
 from app.dependency.db import get_db_session
+from app.schemas import response, user
 auth_router = APIRouter(
     prefix="/auth",
     tags=["Authentication"]
@@ -17,5 +18,5 @@ def signup(request_payload: SignupUserSchema = Body(...), db: Session = Depends(
 
 
 @auth_router.post("/signin")
-def signin(response: Response, request_payload: SigninUserSchema = Body(...), db: Session = Depends(get_db_session)):
-    return auth_controller.signin(response=response, request_payload=request_payload)
+def signin(request_payload: SigninUserSchema = Body(...), db: Session = Depends(get_db_session)):
+    return auth_controller.signin(db=db, request_payload=request_payload)
